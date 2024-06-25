@@ -1,8 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, TypeAdapter
 from typing import List
-import json
-import os
+import json, os
 
 app = FastAPI()
 
@@ -17,7 +16,7 @@ async def create_user(user: User):
     return user
 
 @app.get("/users/", response_model=List[User])
-async def read_users():
+async def read_all_users():
     return users
 
 @app.get("/users/{user_cpf}", response_model=User)
